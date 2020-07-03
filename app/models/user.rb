@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     before_create :create_remember_token
-
+    has_many :events, :foreign_key => :creator_id
+    
     has_secure_password
   validates :password, length: { minimum: 6 }
 
